@@ -51,7 +51,7 @@
                             <th>Typ</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="stocktable" runat="server">
 
                     </tbody>
                 </table>
