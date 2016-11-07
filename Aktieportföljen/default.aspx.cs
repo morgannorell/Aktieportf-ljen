@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Aktieportföljen.classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,6 +13,10 @@ namespace Aktieportföljen
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+         
+            Stockitem myStock = new Stockitem();
+            List<Stockitem> myStocks;
+            myStocks = myStock.LoadXmlFile(Server.MapPath("xml/stocks.xml"));
             CreateTable();
         }
 
@@ -21,6 +26,6 @@ namespace Aktieportföljen
             tableElement.InnerHtml = "<td>Nytt värde</td><td>Nytt värde</td><td>Nytt Värde</td><td>Nytt värde</td><td>Nytt värde</td>";
 
             stocktable.Controls.Add(tableElement);
-        }
+        }       
     }
 }
