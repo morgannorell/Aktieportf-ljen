@@ -1,0 +1,148 @@
+﻿body {
+	background-color: #F2F2F2;
+	margin: 0;
+	padding: 0;
+}
+
+/******************
+***** CONTAINERS
+*******************/
+
+div.top-black {
+	width: auto;
+	min-height: 70px;
+	background-color: #000;
+}
+
+div.top-white {
+	width: auto;
+	min-height: 40px;
+	background-color: #fff;
+}
+
+.container {
+	max-width: 1280px;
+	padding: 0;
+	margin: 0 auto;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #475261;
+}
+
+div.page-title {
+	max-width: 900px;
+	margin: -75px auto 0 auto;
+	padding: 5px 0 2px 0;
+	background-color: #62983c;
+	color: #fff;
+	text-align: center;
+}
+
+.nav {
+	max-width: 900px;
+	min-height: 25px;
+	margin:0 auto;
+	padding: 5px 0;
+    background-color: #000;
+}
+
+div.article {
+    max-width: 800px;
+    min-height: 0;
+    margin: 40px auto;
+    border-radius: 25px;
+    background-color: #fff;
+}
+
+div.textfield {
+    margin: 0 30px 0 30px;
+    padding: 5px 0 5px 0;
+}
+
+.footer {
+    max-width: 800px;
+    margin: 25px auto 0;
+    padding: 10px 0;
+    background-color: #62983c;
+}
+
+div.bottom-black {
+	max-width: 800px;
+	min-height: 25px;
+	margin: 0 auto;
+	background-color: #000;	
+}
+
+/******************
+***** TEXT
+*******************/
+
+div.footer h3 {
+	font-size: 20px;
+	text-indent: 25px;
+	line-height: 0;
+	color: #fff;
+}
+
+div.footer p {
+	font-size: 10px;
+	text-indent: 25px;
+	line-height: 0;
+	color: #fff;
+}
+
+/******************
+***** NAVIGATION
+*******************/
+
+div.home a {
+    color: #fff;
+    float:left;
+    text-indent: 20px;
+    text-decoration: none;
+	font-size: 18px;
+}
+
+div.home a:hover{
+	opacity: .6;
+}
+
+form.ddlst {
+    padding-left: 35px;
+}
+
+.listsyle {
+    width: 120px;
+    border: 2px solid;
+    border-radius: 5px;
+    height:24px;
+    background-color: #000;
+    color: #fff;
+}
+
+ul.topnav {
+	list-style-type: none;
+	margin: 0 0;
+	padding: 0 15px;
+	overflow: hidden;    
+}
+
+ul.topnav li { 
+    float: right;
+}
+
+ul.topnav li a {
+	display: inline-block;
+	padding: 0 0 0 15px;
+    color: #fff;
+	text-decoration: none;
+	text-align: center;
+	font-size: 12px;
+}
+
+ul.topnav li a:hover{
+	opacity: .6;
+}
+
+ul.topnav li.icon { 
+	display: none; 
+}
