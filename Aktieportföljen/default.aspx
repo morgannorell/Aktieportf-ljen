@@ -24,7 +24,7 @@
                 <li class="icon"><a href="javascript:void(0);" onclick="myFunction()">&#9776;</a></li>
                 <li> 
                     <form id="DropDownForm" class="ddlst" runat="server">
-                        <asp:DropDownList ID="DropDownLst" class="listsyle" runat="server">
+                        <asp:DropDownList ID="DropDownLst" class="listsyle" AutoPostBack="true" runat="server" OnSelectedIndexChanged="DropDownLst_SelectedIndexChanged">
                         <asp:ListItem value="AB" Selected="True">A + B aktier</asp:ListItem>
                         <asp:ListItem value="A">A aktier</asp:ListItem>
                         <asp:ListItem value="B">B aktier</asp:ListItem>
@@ -39,7 +39,8 @@
 		</div>  
 		<div class="article">
 			<div class="textfield">
-				<h3>Aktielistan</h3>
+				<div id="test" runat="server">TEST</div>
+                <h2>Aktielistan</h2>
                 <p></p>
                 <table>
                     <thead>
