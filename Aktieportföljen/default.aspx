@@ -25,7 +25,7 @@
                 <li> 
                     <form id="DropDownForm" class="ddlst" runat="server">
                         <asp:DropDownList ID="DropDownLst" class="listsyle" AutoPostBack="true" runat="server" OnSelectedIndexChanged="DropDownLst_SelectedIndexChanged">
-                        <asp:ListItem value="AB" Selected="True">A + B aktier</asp:ListItem>
+                        <asp:ListItem value="AB">A + B aktier</asp:ListItem>
                         <asp:ListItem value="A">A aktier</asp:ListItem>
                         <asp:ListItem value="B">B aktier</asp:ListItem>
                         </asp:DropDownList>
@@ -39,7 +39,6 @@
 		</div>  
 		<div class="article">
 			<div class="textfield">
-				<div id="test" runat="server">TEST</div>
                 <h2>Aktielistan</h2>
                 <p></p>
                 <table>

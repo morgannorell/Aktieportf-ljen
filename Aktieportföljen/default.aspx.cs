@@ -13,7 +13,7 @@ namespace Aktieportföljen
     public partial class _default : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {                     
+        {
             CreateTable(ListData());
         }
 
@@ -28,7 +28,7 @@ namespace Aktieportföljen
                     "<td>" + s.Stocklist + "</td>" +
                     "<td>" + s.Stocktype + "</td>";
 
-                stocktable.Controls.Add(tableElement);
+                stocktable.Controls.Add(tableElement);                
             }
         }
         
@@ -39,41 +39,106 @@ namespace Aktieportföljen
             XDocument xdoc = XDocument.Load(Server.MapPath("xml/aktier.xml"));
             IEnumerable<XElement> result = null;
 
-            //result =
-            //            from minaktie in xdoc.Descendants("aktie")
-            //            where minaktie.Element("stockname").Attribute("stocklist").Value == "Large"
-            //            && minaktie.Element("stockname").Attribute("stocktype").Value == selectedType
-            //            select minaktie;
-
-            string selectedType = "";
-
             if (Request.QueryString["cap"] == "large")
-            {           
-                result =
+            {
+                if (DropDownLst.SelectedItem.Value == "A")
+                {
+                    result =
                     from minaktie in xdoc.Descendants("aktie")
                     where minaktie.Element("stockname").Attribute("stocklist").Value == "Large"
-                    && minaktie.Element("stockname").Attribute("stocktype").Value == selectedType
+                    && minaktie.Element("stockname").Attribute("stocktype").Value == "A"
                     select minaktie;
+                }
+                else if (DropDownLst.SelectedItem.Value == "B")
+                {
+                    result =
+                    from minaktie in xdoc.Descendants("aktie")
+                    where minaktie.Element("stockname").Attribute("stocklist").Value == "Large"
+                    && minaktie.Element("stockname").Attribute("stocktype").Value == "B"
+                    select minaktie;
+                }
+                else
+                {
+                    result =
+                        from minaktie in xdoc.Descendants("aktie")
+                        where minaktie.Element("stockname").Attribute("stocklist").Value == "Large"
+                        select minaktie;
+                }
             }
             else if (Request.QueryString["cap"] == "mid")
             {
-                result =
+                if (DropDownLst.SelectedItem.Value == "A")
+                {
+                    result =
                     from minaktie in xdoc.Descendants("aktie")
                     where minaktie.Element("stockname").Attribute("stocklist").Value == "Mid"
+                    && minaktie.Element("stockname").Attribute("stocktype").Value == "A"
                     select minaktie;
+                }
+                else if (DropDownLst.SelectedItem.Value == "B")
+                {
+                    result =
+                    from minaktie in xdoc.Descendants("aktie")
+                    where minaktie.Element("stockname").Attribute("stocklist").Value == "Mid"
+                    && minaktie.Element("stockname").Attribute("stocktype").Value == "B"
+                    select minaktie;
+                }
+                else
+                {
+                    result =
+                        from minaktie in xdoc.Descendants("aktie")
+                        where minaktie.Element("stockname").Attribute("stocklist").Value == "Mid"
+                        select minaktie;
+                }
             }
             else if (Request.QueryString["cap"] == "small")
             {
-                result =
+                if (DropDownLst.SelectedItem.Value == "A")
+                {
+                    result =
                     from minaktie in xdoc.Descendants("aktie")
                     where minaktie.Element("stockname").Attribute("stocklist").Value == "Small"
+                    && minaktie.Element("stockname").Attribute("stocktype").Value == "A"
                     select minaktie;
+                }
+                else if (DropDownLst.SelectedItem.Value == "B")
+                {
+                    result =
+                    from minaktie in xdoc.Descendants("aktie")
+                    where minaktie.Element("stockname").Attribute("stocklist").Value == "Small"
+                    && minaktie.Element("stockname").Attribute("stocktype").Value == "B"
+                    select minaktie;
+                }
+                else
+                {
+                    result =
+                        from minaktie in xdoc.Descendants("aktie")
+                        where minaktie.Element("stockname").Attribute("stocklist").Value == "Small"
+                        select minaktie;
+                }
             }
             else
             {
-                result =
-                from minaktie in xdoc.Descendants("aktie")
-                select minaktie;
+                if (DropDownLst.SelectedItem.Value == "A")
+                {
+                    result =
+                    from minaktie in xdoc.Descendants("aktie")
+                    where minaktie.Element("stockname").Attribute("stocktype").Value == "A"
+                    select minaktie;
+                }
+                else if (DropDownLst.SelectedItem.Value == "B")
+                {
+                    result =
+                    from minaktie in xdoc.Descendants("aktie")
+                    where minaktie.Element("stockname").Attribute("stocktype").Value == "B"
+                    select minaktie;
+                }
+                else
+                {
+                    result =
+                        from minaktie in xdoc.Descendants("aktie")                        
+                        select minaktie;
+                }
             }
 
             foreach (XElement xe in result)
@@ -89,19 +154,12 @@ namespace Aktieportföljen
             }
 
             return stocklist;
-
-            //result =
-            //            from minaktie in xdoc.Descendants("aktie")
-            //            where minaktie.Element("stockname").Attribute("stocklist").Value == "Large"
-            //            && minaktie.Element("stockname").Attribute("stocktype").Value == selectedType
-            //            select minaktie;
         }
 
         protected void DropDownLst_SelectedIndexChanged(object sender, EventArgs e)
         {
-            HtmlGenericControl mytest = new HtmlGenericControl("p");
-            mytest.InnerHtml = DropDownLst.SelectedItem.Value;
-            test.Controls.Add(mytest);
+            stocktable.Controls.Clear();
+            CreateTable(ListData());
         }
     }
 }
